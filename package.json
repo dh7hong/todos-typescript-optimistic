@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "rimraf .next && next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.9.1",
@@ -15,7 +18,9 @@
     "next": "14.1.0",
     "prisma": "^5.9.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@types/node": "^20",
